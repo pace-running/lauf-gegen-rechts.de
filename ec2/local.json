@@ -1,4 +1,23 @@
 {
+  "shirts": {
+    "price": "10",
+    "models": [
+      {
+        "value": "Slim fit",
+        "description": "Tailliert",
+        "sizes": ["XS","S","M","L"]
+      },
+      {
+        "value": "Regular",
+        "description": "Unisex",
+        "sizes": ["S","M","L","XL"]
+      }
+    ]
+  },
+  "costs": {
+    "standard": "10",
+    "discount": "5"
+  },
   "contact": {
     "email": "gegenrechts@fcstpauli-marathon.de",
     "bank": {
