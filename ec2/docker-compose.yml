@@ -1,0 +1,18 @@
+pace-app:
+  image: pacerunning/pace-app
+  ports:
+  - "3000:3000"
+  environment:
+  - DATABASE_URL=postgres://root:${db_password}@${postgres}/pacedb
+  - REDISHOST=${redis}
+  command: ["/bin/sh","-c","/usr/local/bin/node ./node_modules/db-migrate/bin/db-migrate up -e prod;/usr/local/bin/npm start"]
+  volumes:
+  - /config:/usr/src/app/config
+pace-pdf:
+  image: pacerunning/pace-pdf
+  environment:
+  - REDISHOST=${redis}
+  ports:
+  - "3001:3001"
+  volumes:
+  - /config:/usr/src/app/config

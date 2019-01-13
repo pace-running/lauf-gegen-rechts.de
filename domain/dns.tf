@@ -11,18 +11,10 @@ resource "aws_route53_record" "www" {
   //records = ["${var.load-balancer-name}"]
 }
 
-resource "aws_route53_record" "mail" {
-  name = "mail.${aws_route53_zone.lauf-gegen-rechts.name}"
-  type = "A"
-  records = ["213.128.138.199"]
-  zone_id = "${aws_route53_zone.lauf-gegen-rechts.id}"
-  ttl = "3600"
-}
-
 resource "aws_route53_record" "MX" {
   name = "${aws_route53_zone.lauf-gegen-rechts.name}"
   type = "MX"
   zone_id = "${aws_route53_zone.lauf-gegen-rechts.id}"
-  records = ["10 mail.${aws_route53_zone.lauf-gegen-rechts.name}"]
+  records = ["10 mail.kluenter.de"]
   ttl = "3600"
 }

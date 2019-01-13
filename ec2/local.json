@@ -1,0 +1,22 @@
+{
+  "contact": {
+    "email": "gegenrechts@fcstpauli-marathon.de",
+    "bank": {
+      "name": "Hamburger Volksbank",
+      "iban": "DE09 2019 0003 0019 4004 20",
+      "bic": "GENODEF1HH2"
+    }
+  },
+  "admin": {
+    "username": "admin",
+    "password": "bitaiZi2ak"
+  },
+  "cookie-secret":"reedai6oacah1ENg0iem",
+  "pace-url": "https://lauf-gegen-rechts.de",
+  "metrics": true,
+  "proxy":true,
+  "https":true,
+  "teamEvent" : false,
+  "eventName": "Lauf gegen Rechts 2019",
+  "eventUrl": "http://fcstpauli-marathon.de/gegenrechts"
+}

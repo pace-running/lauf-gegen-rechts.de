@@ -14,12 +14,24 @@ terraform {
 
 module "vpc" {
   source = "./vpc"
+  app_name = "${var.app_name}"
+}
+
+module "ec2" {
+  source = "./ec2"
+  domain_name ="${var.domain_name}"
+  app_name = "${var.app_name}"
+  subnet_ids = ["${module.vpc.ec2-subnet-id-1}", "${module.vpc.ec2-subnet-id-2}"]
+  vpc_id = "${module.vpc.id}"
+  redis = "${module.persistence.redis-ip}"
+  postgres = "${module.persistence.postgres-ip}"
+  cert-arn = "${module.domain.cert-arn}"
 }
 
 module "domain" {
   source = "./domain"
   domain_name        = "${var.domain_name}"
- // load-balancer-name = "${module.ec2.ecs-load-balancer-dns-name}"
+  load-balancer-name = "${module.ec2.load-balancer-dns-name}"
 }
 
 module "persistence" {
@@ -28,7 +40,7 @@ module "persistence" {
   db-subnet-id-1     = "${module.vpc.db-subnet-id-1}"
   db-subnet-id-2     = "${module.vpc.db-subnet-id-2}"
   app_name           = "${var.app_name}"
-  security-group-id  = "${module.vpc.security-group-id}"
+  security-group-id  = "${module.ec2.ec2-security-group-id}"
   vpc-id             = "${module.vpc.id}"
   config-bucket-name = "${var.domain_name}-config-bucket"
 }

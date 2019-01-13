@@ -63,7 +63,3 @@ data "aws_secretsmanager_secret_version" "superuser_db_password" {
 output "postgres-ip" {
   value = "${aws_db_instance.postgres.address}"
 }
-
-output "postgres-password" {
-  value = "${data.aws_secretsmanager_secret_version.superuser_db_password.secret_string}"
-}
