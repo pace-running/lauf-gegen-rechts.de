@@ -79,11 +79,16 @@ resource "aws_alb_target_group" "pace-pdf-target_group" {
   }
 }
 
+data "aws_acm_certificate" "pace-cert"
+{
+  domain = "www.${var.domain_name}"
+}
+
 resource "aws_alb_listener" "alb-listener-https" {
   load_balancer_arn = "${aws_alb.load-balancer.arn}"
   port              = "443"
   protocol          = "HTTPS"
-  certificate_arn   = "${var.cert-arn}"
+  certificate_arn   = "${data.aws_acm_certificate.pace-cert.arn}"
   default_action {
     target_group_arn = "${aws_alb_target_group.pace-target_group.arn}"
     type             = "forward"

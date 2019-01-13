@@ -6,4 +6,3 @@ variable "subnet_ids" {
 variable "vpc_id" {}
 variable "redis" {}
 variable "postgres" {}
-variable "cert-arn" {}

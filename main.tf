@@ -25,13 +25,6 @@ module "ec2" {
   vpc_id = "${module.vpc.id}"
   redis = "${module.persistence.redis-ip}"
   postgres = "${module.persistence.postgres-ip}"
-  cert-arn = "${module.domain.cert-arn}"
-}
-
-module "domain" {
-  source = "./domain"
-  domain_name        = "${var.domain_name}"
-  load-balancer-name = "${module.ec2.load-balancer-dns-name}"
 }
 
 module "persistence" {
