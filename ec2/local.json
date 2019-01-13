@@ -12,11 +12,12 @@
     "password": "bitaiZi2ak"
   },
   "cookie-secret":"reedai6oacah1ENg0iem",
-  "pace-url": "https://lauf-gegen-rechts.de",
+  "pace-url": "https://www.lauf-gegen-rechts.de",
   "metrics": true,
   "proxy":true,
   "https":true,
   "teamEvent" : false,
   "eventName": "Lauf gegen Rechts 2019",
-  "eventUrl": "http://fcstpauli-marathon.de/gegenrechts"
+  "eventUrl": "http://fcstpauli-marathon.de/gegenrechts",
+  "mailserver": ${mailserver}
 }

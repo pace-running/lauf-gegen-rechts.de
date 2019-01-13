@@ -39,6 +39,19 @@ data "template_file" "launch-configuration-user-data" {
     pace-config = "${data.template_file.pace-config.rendered}"
   }
 }
+data "aws_secretsmanager_secret" "mailserver_username" {
+  name = "pace/smtp/username"
+}
+data "aws_secretsmanager_secret_version" "mailserver_username" {
+  secret_id = "${data.aws_secretsmanager_secret.mailserver_username.id}"
+}
+
+data "aws_secretsmanager_secret" "mailserver_password" {
+  name = "pace/smtp/password"
+}
+data "aws_secretsmanager_secret_version" "mailserver_password" {
+  secret_id = "${data.aws_secretsmanager_secret.mailserver_password.id}"
+}
 
 data "aws_secretsmanager_secret" "superuser_db_password" {
   name = "/pace/superuser_db_password"
@@ -59,4 +72,7 @@ data "template_file" "docker-compose" {
 
 data "template_file" "pace-config" {
   template = "${file("${path.module}/local.json")}"
+  vars {
+    mailserver = "smtps://${data.aws_secretsmanager_secret_version.mailserver_username.secret_string}:${data.aws_secretsmanager_secret_version.mailserver_password.secret_string}@email-smtp.eu-west-1.amazonaws.com?pool=true"
+  }
 }
