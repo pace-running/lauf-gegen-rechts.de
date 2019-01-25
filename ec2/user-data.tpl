@@ -1,6 +1,8 @@
 #!/bin/bash
 sudo apt update
-sudo apt -y install docker-compose python-pip
+sudo apt -y install docker-compose python-pip nfs-common
+
+mkdir /efs
 
 cat <<EOF >/tmp/docker-compose.yml
 ${docker-compose}
