@@ -8,7 +8,7 @@ chmod 0600 /home/ubuntu/.ssh/authorized_keys
 
 mkdir /efs
 
-# mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 fs-fs-37159d6e.efs.${region}.amazonaws.com:/ /efs
+mount -t nfs4 -o nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2 ${efs_dns}:/ /efs
 
 cat <<EOF >/tmp/docker-compose.yml
 ${docker-compose}

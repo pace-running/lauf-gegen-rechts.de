@@ -44,3 +44,7 @@ resource "aws_security_group" "efs-security-group" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+output "efs_dns" {
+  value = "${aws_efs_file_system.pdf-efs.dns_name}"
+}

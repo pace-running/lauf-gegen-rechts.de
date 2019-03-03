@@ -41,7 +41,7 @@ data "template_file" "launch-configuration-user-data" {
   vars {
     docker-compose = "${data.template_file.docker-compose.rendered}"
     pace-config    = "${data.template_file.pace-config.rendered}"
-    region         = "${var.region}"
+    efs_dns        = "${var.efs_dns}"
   }
 }
 

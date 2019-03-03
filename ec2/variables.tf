@@ -11,3 +11,4 @@ variable "redis" {}
 variable "postgres" {}
 
 variable "region" {}
+variable "efs_dns" {}

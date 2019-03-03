@@ -26,6 +26,7 @@ module "ec2" {
   redis       = "${module.persistence.redis-ip}"
   postgres    = "${module.persistence.postgres-ip}"
   region      = "${local.region}"
+  efs_dns     = "${module.persistence.efs_dns}"
 }
 
 module "persistence" {

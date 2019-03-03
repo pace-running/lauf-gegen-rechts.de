@@ -9,6 +9,7 @@ pace-app:
   command: ["/bin/sh","-c","/usr/local/bin/node ./node_modules/db-migrate/bin/db-migrate up -e prod;/usr/local/bin/npm start"]
   volumes:
   - /config:/usr/src/app/config
+  - /efs:/efs
 pace-pdf:
   image: pacerunning/pace-pdf
   environment:
@@ -17,3 +18,4 @@ pace-pdf:
   - "3001:3001"
   volumes:
   - /config:/usr/src/app/config
+  - /efs:/efs
