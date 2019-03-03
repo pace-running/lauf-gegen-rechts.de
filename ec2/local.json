@@ -1,16 +1,15 @@
 {
   "shirts": {
     "price": "10",
-    "models": [
-      {
+    "models": [{
         "value": "Slim fit",
         "description": "Tailliert",
-        "sizes": ["XS","S","M","L"]
+        "sizes": ["XS", "S", "M", "L"]
       },
       {
         "value": "Regular",
         "description": "Unisex",
-        "sizes": ["S","M","L","XL"]
+        "sizes": ["S", "M", "L", "XL"]
       }
     ]
   },
@@ -28,14 +27,14 @@
   },
   "admin": {
     "username": "admin",
-    "password": "bitaiZi2ak"
+    "password": "${admin_password}"
   },
-  "cookie-secret":"reedai6oacah1ENg0iem",
+  "cookie-secret": "reedai6oacah1ENg0iem",
   "pace-url": "https://www.lauf-gegen-rechts.de",
   "metrics": true,
-  "proxy":true,
-  "https":true,
-  "teamEvent" : false,
+  "proxy": true,
+  "https": true,
+  "teamEvent": false,
   "eventName": "Lauf gegen Rechts 2019",
   "eventUrl": "http://fcstpauli-marathon.de/gegenrechts",
   "mailserver": "${mailserver}"

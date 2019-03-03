@@ -83,6 +83,15 @@ data "template_file" "pace-config" {
   template = "${file("${path.module}/local.json")}"
 
   vars {
-    mailserver = "smtps://${data.aws_secretsmanager_secret_version.mailserver_username.secret_string}:${data.aws_secretsmanager_secret_version.mailserver_password.secret_string}@email-smtp.eu-west-1.amazonaws.com?pool=true"
+    mailserver     = "smtps://${data.aws_secretsmanager_secret_version.mailserver_username.secret_string}:${data.aws_secretsmanager_secret_version.mailserver_password.secret_string}@email-smtp.eu-west-1.amazonaws.com?pool=true"
+    admin_password = "${data.aws_secretsmanager_secret_version.admin_password.secret_string}"
   }
+}
+
+resource "aws_secretsmanager_secret" "admin_password" {
+  name = "pace/admin-password"
+}
+
+data "aws_secretsmanager_secret_version" "admin_password" {
+  secret_id = "${aws_secretsmanager_secret.admin_password.id}"
 }
