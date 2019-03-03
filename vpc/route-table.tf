@@ -15,8 +15,8 @@ resource "aws_route_table_association" "pace-vpc-route-table-association1" {
   subnet_id      = "${aws_subnet.pace-ec2-subnet-1.id}"
   route_table_id = "${aws_route_table.pace-vpc-route-table.id}"
 }
+
 resource "aws_route_table_association" "pace-vpc-route-table-association2" {
   subnet_id      = "${aws_subnet.pace-ec2-subnet-2.id}"
   route_table_id = "${aws_route_table.pace-vpc-route-table.id}"
 }
-

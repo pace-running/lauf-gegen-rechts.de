@@ -7,7 +7,6 @@ resource "aws_autoscaling_group" "ecs-autoscaling-group" {
   launch_configuration = "${aws_launch_configuration.pace-launch-configuration.name}"
   health_check_type    = "ELB"
 
-
   lifecycle {
     create_before_destroy = true
   }

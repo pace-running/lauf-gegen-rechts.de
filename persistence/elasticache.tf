@@ -11,12 +11,13 @@ resource "aws_elasticache_cluster" "pace-redis" {
 }
 
 resource "aws_security_group" "redis-security-group" {
-  name = "${var.app_name}-redis-security-group"
+  name   = "${var.app_name}-redis-security-group"
   vpc_id = "${var.vpc-id}"
+
   ingress {
-    from_port = 6379
-    protocol = "tcp"
-    to_port = 6379
+    from_port       = 6379
+    protocol        = "tcp"
+    to_port         = 6379
     security_groups = ["${var.security-group-id}"]
   }
 }

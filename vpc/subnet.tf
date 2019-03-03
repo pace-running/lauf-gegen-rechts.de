@@ -7,6 +7,7 @@ resource "aws_subnet" "pace-ec2-subnet-1" {
     Name = "pace-ec2-subnet"
   }
 }
+
 resource "aws_subnet" "pace-ec2-subnet-2" {
   vpc_id            = "${aws_vpc.pace-vpc.id}"
   cidr_block        = "10.0.1.0/24"

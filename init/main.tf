@@ -20,7 +20,5 @@ resource "aws_dynamodb_table" "dynamodb-terraform-state-lock" {
 
 resource "aws_s3_bucket" "lauf-gegen-retchs-state-bucket" {
   bucket = "lauf-gegen-rechts-state-bucket"
-  acl = "private"
-
+  acl    = "private"
 }
-

@@ -14,6 +14,7 @@ resource "aws_efs_mount_target" "pdf-efs-target-subnet-2" {
 
 data "aws_subnet_ids" "ec2_subnets" {
   vpc_id = "${var.vpc-id}"
+
   tags {
     "Name" = "pace-ec2-subnet"
   }
