@@ -37,5 +37,6 @@
   "teamEvent": false,
   "eventName": "Lauf gegen Rechts 2019",
   "eventUrl": "http://fcstpauli-marathon.de/gegenrechts",
-  "mailserver": "${mailserver}"
+  "mailserver": "${mailserver}",
+  "pdfPath": "/efs/startnumbers/"
 }
