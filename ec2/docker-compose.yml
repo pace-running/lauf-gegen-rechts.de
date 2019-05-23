@@ -12,6 +12,7 @@ pace-app:
   - /efs:/efs
 pace-pdf:
   image: pacerunning/pace-pdf
+  command: ["/bin/sh","-c","/usr/local/bin/node --max-old-space-size=4096 app.js"]
   environment:
   - REDISHOST=${redis}
   ports:
