@@ -17,7 +17,7 @@ data "aws_ami" "ubuntu" {
 resource "aws_launch_configuration" "pace-launch-configuration" {
   name_prefix                 = "pace-launch-configuration"
   image_id                    = "${data.aws_ami.ubuntu.id}"
-  instance_type               = "t2.large"
+  instance_type               = "t2.medium"
   associate_public_ip_address = "true"
   user_data                   = "${data.template_cloudinit_config.pace-init.rendered}"
   security_groups             = ["${aws_security_group.pace-ec2-security-group.id}"]
